@@ -9,9 +9,12 @@ Friday October 21
 
 <!-- - [How To Run Prism Scripts To Automate Analysis](#how-to-run-prism-scripts-to-automate-analysis) -->
 - [How To Run Prism Scripts To Automate Analysis 😊](#how-to-run-prism-scripts-to-automate-analysis-)
-- [HowTo What?](#howto-what)
+- [What do the Script Do?](#what-do-the-script-do)
+  - [What the scripts do for you](#what-the-scripts-do-for-you)
+  - [What you do for the scripts](#what-you-do-for-the-scripts)
 - [What you need prior to starting..](#what-you-need-prior-to-starting)
-  - [1. Properly formatted .CSV files - 1 File / Data Table.](#1-properly-formatted-csv-files---1-file--data-table)
+  - [1. Properly formatted .CSV files.](#1-properly-formatted-csv-files)
+    - [One File = DataTable.](#one-file--datatable)
   - [2. Properly Named Files](#2-properly-named-files)
   - [3. Files Saved in a Folder](#3-files-saved-in-a-folder)
   - [4. Know the Total Number of CSV Files you wish to import](#4-know-the-total-number-of-csv-files-you-wish-to-import)
@@ -25,24 +28,39 @@ Friday October 21
   - [🎉 Congratulations! 🎉](#-congratulations-)
 - [Techy Tips 👓](#techy-tips-)
   - [Get Folder Path](#get-folder-path)
-    - [On Mac Finder](#on-mac-finder)
-    - [On Mac with Terminal](#on-mac-with-terminal)
+    - [On Mac](#on-mac)
+      - [Finder](#finder)
+      - [Terminal](#terminal)
     - [On Windows](#on-windows)
 
 
-# HowTo What?
+# What do the Script Do?
 
-How to run two scripts in Prism GraphPad to automate analysis for multple data tables. These scripts replace the manual process:
+## What the scripts do for you
 
-1. Duplicate Family of Data Table
-2. Clear Data Table
-3. Import New Data Into Table
-4. Rename the Data Table
-5. Update the Graph's Title
+  🤖 Duplicate Family of DataTable `X` Times
+
+  🤖 Clear Each Data Table
+
+  🤖 Import all CSV files from `Folder` into consequitive DataTables, one after another
+
+  🤖 Updates Table Names and Graph Titles To the corresponding Filename
+
+## What you do for the scripts
+
+  👉 You create the first DataTable + Analysis + Plot Family in Prism
+
+  👉 You decide `X` # of duplicate families to create
+
+  👉 You save the `X` # of csv files in a `Folder` on your computer
+
+  👉 You properly format the csv files
+
 
 # What you need prior to starting..
 
-## 1. Properly formatted .CSV files - 1 File / Data Table.
+## 1. Properly formatted .CSV files.
+  ### One File = DataTable.
 
 The script will directly import the data from csv file, so it must already be in correct format.
 
@@ -61,11 +79,7 @@ Here is <b>one</b> example of properly formatted data for a XY data analysis whe
 | 3       | 45.83   | 44.2  | 47.33 | 99.93   | 99.91 | 99.97 | 99.91   | 99.95 | 99.93 |
 
 
-`XValues` cell must be in the `A1` position in csv!
-
-The `PCK Automation Support App` exports these files properly named and formatted.
-
-😵 Did you hate converting your data into proper format? Contact Automation Core!
+The first data value (here it is `XValues`) cell must be in the `A1` position/cell.
 
 ## 2. Properly Named Files
 
@@ -91,7 +105,7 @@ On Windows
 1. Go to your Folder in Windows Explorer
 2. Open the Folder
 3. In the Windows Explorer Address Bar, type "cmd" (but don't include the quotes) and press Enter.
-4. This takes you to command promt, where you can copy paste this garbage:
+4. This takes you to command promt, where you can paste this garbage:
   ```bash
   (for /r %f in (*.csv) do @type "%f") | find /c /v ""
   ```
@@ -100,7 +114,7 @@ On Windows
 ## 5. Save These 2 Scripts
 
 ### `DuplicateFamilyNTimes.pcz`
-  - Open Prism GraphPad
+  - Open GraphPad Prism
   - File > Run Script > New Script
     - Select `Blank Script`
     - Name of Script: `DuplicateFamilyNTimes` 
@@ -116,7 +130,7 @@ Next
 ```
 
 ###  `ImportDataTables.pcz`
-  - Open Prism GraphPad
+  - Open GraphPad Prism
   - File > Run Script > New Script
     - Select `Blank Script`
     - Name of Script: `ImportDataTables` 
@@ -152,15 +166,14 @@ WText "Graph Names are Updated!"
 CloseOutput
 ```
 
-
 # Instructions
-
 
 ## Create First Prism Family 
 - Import single data table
 - Do analysis
 - Format plots
 - Add a layout if you want
+- <b>Save A Copy</b> of this file, in case you mess up
 
 ## Edit One Number In `DuplicateFamilyNTimes` Script 
   1. File > Run Script > Open Script File
@@ -188,23 +201,27 @@ Next
   1. File > Run Script > Open Script File
   2. Click on `ImportDataTables.pzc` 
   3. Copy your folder path that contains your CSV Files
-    - See How To [Get Folder Path](#Get-Folder-Path)
+    - See How To [Get Folder Path](#Get-Folder-Path) below
   4. Paste your Path in quotes after `SetPath `
-  
-    Windows Example
-    ```
-    SetPath "C:\Users\syoder\Desktop\Data"
-    ```
-    Mac Example
-    ```
-    SetPath "/Users/nicolewheatley/Documents/PrismData/Files"
-    ```
+
+  Windows Example
+  ```
+  SetPath "C:\Users\syoder\Desktop\Data"
+  ```
+  Mac Example
+  ```
+  SetPath "/Users/nicolewheatley/Documents/PrismData/Files"
+  ```
 
   5. Press `Run`
 
 
 
 ## 🎉 Congratulations! 🎉
+
+The script should take ~10 seconds to run.
+
+Then you will see all of your newly imported data.
 
 <br/>
 <br>
@@ -213,7 +230,8 @@ Next
 
 ## Get Folder Path
 
-### On Mac Finder
+### On Mac 
+#### Finder
 1. Open Finder
 2. Go to Folder that contains your data
 3. Right click on the folder
@@ -221,14 +239,13 @@ Next
 5. Press Alt, and the Copy option will become 'Copy Folder Path'
 6. Click Copy Folder Path while holding down Alt.
 
-### On Mac with Terminal
+#### Terminal
 1. Go to your folder in Finder, right click, and select `New Terminal At Folder`
 2. type `pwd` and press enter in the terminal.
    - `pwd` stands for 'print working directory'
 3. Copy the printed directory.
 
 ### On Windows
-
 1. Go to your Folder in Windows Explorer
 2. `Shift` + right-click on Folder 
 3. Select `Copy as path` on drop down menu.
