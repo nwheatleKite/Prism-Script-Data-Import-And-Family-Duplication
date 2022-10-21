@@ -40,7 +40,7 @@ Friday October 21
 
   🤖 Duplicate Family of DataTable `X` Times
 
-  🤖 Clear Each Data Table
+  🤖 Clear Each DataTable
 
   🤖 Import all CSV files from `Folder` into consequitive DataTables, one after another
 
@@ -62,9 +62,9 @@ Friday October 21
 ## 1. Properly formatted .CSV files.
   ### One File = DataTable.
 
-The script will directly import the data from csv file, so it must already be in correct format.
+The script will directly import one datatabe from one csv file, so it must already be in correct format.
 
-Here is <b>one</b> example of properly formatted data for a XY data analysis where Y has 3 replicates in the analysis. But, the proper format will vary project by project.
+Here is <b>one</b> example of properly formatted data for a XY data analysis where Y has 3 replicates. But, the proper format will vary project by project.
 
 
 | XValues | Sample1 |       |       | Sample2 |       |       | Sample3 |       |       |
@@ -79,27 +79,31 @@ Here is <b>one</b> example of properly formatted data for a XY data analysis whe
 | 3       | 45.83   | 44.2  | 47.33 | 99.93   | 99.91 | 99.97 | 99.91   | 99.95 | 99.93 |
 
 
-The first data value (here it is `XValues`) cell must be in the `A1` position/cell.
+The first data value (here it is `XValues`) cell must be in the `A1` position.
 
 ## 2. Properly Named Files
 
-The file name will become the name of the data table, the graph table, and the graph title.
+The file name will become the name of the DataTable, the graph table, and the graph title.
 
 ## 3. Files Saved in a Folder
 
-All the files must be in the same folder. There must not be any other CSV files in this folder, because the Prism script will try to import them all.
+All the files must be saved in the same folder. There must not be any other CSV files in this folder, because the Prism script might try to import them all.
+
+For example, save the files in a folder called MyFiles on the Desktop.
 
 ## 4. Know the Total Number of CSV Files you wish to import
 
-If you want to double-check the number of CSV files in your folder.
+If you aren't sure the exact number of CSV files in your folder.
 
 On Mac
-1.  Go to your folder in Finder, right click, and select `New Terminal At Folder`
-2.  In the terminal window, just copy paste the command <i>using right click paste, not control-v</i>
+1.  Go to your folder in Finder
+    1.  Right click > menu select `New Terminal At Folder`
+2.  In the terminal window that appears, paste the command below <i>using right click, not control-v</i>
     ```bash
     ls *.csv | wc -l
     ```
-3.  The number of files ending in .csv in that folder will print out
+3. Press `Enter`
+4.  The number of files ending in .csv in that folder will print out
 
 On Windows
 1. Go to your Folder in Windows Explorer
@@ -152,7 +156,7 @@ ForEach *.csv
     WText "import success"
     Next
 
-WText "Datatables are Imported!"
+WText "DataTables are Imported!"
 
 GoTo G
 
@@ -169,35 +173,47 @@ CloseOutput
 # Instructions
 
 ## Create First Prism Family 
-- Import single data table
+- Import single DataTable
 - Do analysis
 - Format plots
 - Add a layout if you want
 - <b>Save A Copy</b> of this file, in case you mess up
 
 ## Edit One Number In `DuplicateFamilyNTimes` Script 
+
+This tells the scripts how many NEW DataTables to Create from Duplicating the Family of the First DataTable already in Prism.
+
   1. File > Run Script > Open Script File
   2. Click on `DuplicateFamilyNTimes.pzc` 
   3. Change the number after `ForEach` to the number of Duplicates you want.
-  4. Press `Run` 
 
-To make 30 duplicates
+
+> Warning! - N is the # of NEW tables to make, in addition to one DataTable already in Prism.
+> 
+So if you have 30 DataTables, then N = 29. The scripts will overwrite the first DataTable
+
+To make 29 duplicates (for final 30 DataTables)
 ```
-ForEach 30
+ForEach 29
 GoTo D 1
 DuplicateFamily "Dup %N "
 Next
 ```
-To make 15 duplicates
+To make 15 duplicates (for final 16 DataTables)
 ```
 ForEach 15
 GoTo D 1
 DuplicateFamily "Dup %N "
 Next
 ```
+  4. Press `Run` 
+  5. 
  - After the script is finished, you should see all the duplicated familes.
 
 ## Edit One Line in `ImportDataTables` Script
+
+This tells the Script where on your computer to collect your csv files.
+
   1. File > Run Script > Open Script File
   2. Click on `ImportDataTables.pzc` 
   3. Copy your folder path that contains your CSV Files
