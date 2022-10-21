@@ -12,7 +12,7 @@ Friday October 21
 - [Intro](#intro)
   - [What the scripts do](#what-the-scripts-do)
   - [What you do](#what-you-do)
-- [What you need prior to starting..](#what-you-need-prior-to-starting)
+- [Before You Begin](#before-you-begin)
   - [Files To Import](#files-to-import)
     - [Formatting](#formatting)
     - [Naming](#naming)
@@ -58,7 +58,7 @@ Friday October 21
   👉 You properly format the `.csv` file data
 
 
-# What you need prior to starting..
+# Before You Begin
 
 ## Files To Import
   ### Formatting
