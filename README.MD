@@ -54,7 +54,7 @@ Friday October 21
 
   👉 You save the `X` # of csv files in a `Folder` on your computer
 
-  👉 You properly format the csv files
+  👉 You properly format the csv file data
 
 
 # What you need prior to starting..
