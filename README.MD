@@ -9,7 +9,7 @@ Friday October 21
 
 <!-- - [How To Run Prism Scripts To Automate Analysis](#how-to-run-prism-scripts-to-automate-analysis) -->
 - [How To Run Prism Scripts To Automate Analysis 😊](#how-to-run-prism-scripts-to-automate-analysis-)
-- [What To Expect](#what-to-expect)
+- [Intro](#intro)
   - [What the scripts do](#what-the-scripts-do)
   - [What you do](#what-you-do)
 - [What you need prior to starting..](#what-you-need-prior-to-starting)
@@ -35,7 +35,7 @@ Friday October 21
   - [Find Number Of `.csv` Files In Folder](#find-number-of-csv-files-in-folder)
 
 
-# What To Expect
+# Intro
 
 ## What the scripts do
 
