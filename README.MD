@@ -15,7 +15,7 @@ Friday October 21
 - [What you need prior to starting..](#what-you-need-prior-to-starting)
   - [Files To Import](#files-to-import)
     - [Formatting](#formatting)
-    - [Nameing](#nameing)
+    - [Naming](#naming)
     - [Saved in a Single Folder](#saved-in-a-single-folder)
     - [Know How Many](#know-how-many)
   - [Save These 2 Scripts](#save-these-2-scripts)
@@ -84,7 +84,7 @@ Here is <b>one</b> example of properly formatted data for a XY data analysis whe
 
 The first data value (here it is `XValues`) cell must be in the `A1` position.
 
-### Nameing
+### Naming
 
 The file name will become the name of the DataTable, the graph table, and the graph title.
 
