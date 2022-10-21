@@ -9,22 +9,22 @@ Friday October 21
 
 <!-- - [How To Run Prism Scripts To Automate Analysis](#how-to-run-prism-scripts-to-automate-analysis) -->
 - [How To Run Prism Scripts To Automate Analysis 😊](#how-to-run-prism-scripts-to-automate-analysis-)
-- [What do the Script Do?](#what-do-the-script-do)
-  - [What the scripts do for you](#what-the-scripts-do-for-you)
-  - [What you do for the scripts](#what-you-do-for-the-scripts)
+- [What To Expect](#what-to-expect)
+  - [What the scripts do](#what-the-scripts-do)
+  - [What you do](#what-you-do)
 - [What you need prior to starting..](#what-you-need-prior-to-starting)
-  - [1. Properly formatted .CSV files.](#1-properly-formatted-csv-files)
-    - [One File = DataTable.](#one-file--datatable)
-  - [2. Properly Named Files](#2-properly-named-files)
-  - [3. Files Saved in a Folder](#3-files-saved-in-a-folder)
-  - [4. Know the Total Number of CSV Files you wish to import](#4-know-the-total-number-of-csv-files-you-wish-to-import)
-  - [5. Save These 2 Scripts](#5-save-these-2-scripts)
-    - [`DuplicateFamilyNTimes.pcz`](#duplicatefamilyntimespcz)
-    - [`ImportDataTables.pcz`](#importdatatablespcz)
+  - [Files To Import](#files-to-import)
+    - [Formatting](#formatting)
+    - [Nameing](#nameing)
+    - [Saved in a Single Folder](#saved-in-a-single-folder)
+    - [Know How Many](#know-how-many)
+  - [Save These 2 Scripts](#save-these-2-scripts)
+    - [1. `DuplicateFamilyNTimes.pcz`](#1-duplicatefamilyntimespcz)
+    - [2. `ImportDataTables.pcz`](#2-importdatatablespcz)
 - [Instructions](#instructions)
   - [Create First Prism Family](#create-first-prism-family)
-  - [Edit One Number In `DuplicateFamilyNTimes` Script](#edit-one-number-in-duplicatefamilyntimes-script)
-  - [Edit One Line in `ImportDataTables` Script](#edit-one-line-in-importdatatables-script)
+  - [Run `DuplicateFamilyNTimes` Script](#run-duplicatefamilyntimes-script)
+  - [Run `ImportDataTables` Script](#run-importdatatables-script)
   - [🎉 Congratulations! 🎉](#-congratulations-)
 - [Techy Tips 👓](#techy-tips-)
   - [Get Folder Path](#get-folder-path)
@@ -32,37 +32,40 @@ Friday October 21
       - [Finder](#finder)
       - [Terminal](#terminal)
     - [On Windows](#on-windows)
+  - [Find Number Of `.csv` Files In Folder](#find-number-of-csv-files-in-folder)
 
 
-# What do the Script Do?
+# What To Expect
 
-## What the scripts do for you
+## What the scripts do
 
   🤖 Duplicate Family of DataTable `X` Times
 
   🤖 Clear Each DataTable
 
-  🤖 Import all CSV files from `Folder` into consequitive DataTables, one after another
+  🤖 Import all `.csv` files from `Folder` into consequitive DataTables, one after another
 
   🤖 Updates Table Names and Graph Titles To the corresponding Filename
 
-## What you do for the scripts
+## What you do 
 
-  👉 You create the first DataTable + Analysis + Plot Family in Prism
+  👉 You create a single DataTable + Analysis + Plot Family in Prism
 
-  👉 You decide `X` # of duplicate families to create
+  👉 You decide `N` # of duplicate families to want to create
 
-  👉 You save the `X` # of csv files in a `Folder` on your computer
+  👉 You save the `N` # of `.csv` files in a `Folder` on your computer
 
-  👉 You properly format the csv file data
+  👉 You properly format the `.csv` file data
 
 
 # What you need prior to starting..
 
-## 1. Properly formatted .CSV files.
-  ### One File = DataTable.
+## Files To Import
+  ### Formatting
+   
+   One File = DataTable.
 
-The script will directly import one datatabe from one csv file, so it must already be in correct format.
+The script will directly import one DataTable from one `.csv` file, so it must already be in correct format.
 
 Here is <b>one</b> example of properly formatted data for a XY data analysis where Y has 3 replicates. But, the proper format will vary project by project.
 
@@ -81,74 +84,56 @@ Here is <b>one</b> example of properly formatted data for a XY data analysis whe
 
 The first data value (here it is `XValues`) cell must be in the `A1` position.
 
-## 2. Properly Named Files
+### Nameing
 
 The file name will become the name of the DataTable, the graph table, and the graph title.
 
-## 3. Files Saved in a Folder
+### Saved in a Single Folder
 
-All the files must be saved in the same folder. There must not be any other CSV files in this folder, because the Prism script might try to import them all.
+All the files must be saved in the same folder. There must not be any other `.csv` files in this folder, because the Prism script does not know which ones to import.
 
-For example, save the files in a folder called MyFiles on the Desktop.
+For example, save the files in a folder called MyFiles on your Desktop.
 
-## 4. Know the Total Number of CSV Files you wish to import
+### Know How Many
 
-If you aren't sure the exact number of CSV files in your folder.
+If you have a lot of files, you might not know how many there are.
 
-On Mac
-1.  Go to your folder in Finder
-    1.  Right click > menu select `New Terminal At Folder`
-2.  In the terminal window that appears, paste the command below <i>using right click, not control-v</i>
-    ```bash
-    ls *.csv | wc -l
-    ```
-3. Press `Enter`
-4.  The number of files ending in .csv in that folder will print out
+See How to [Find the Number of `.csv` Files in your Folder](#Find-Number-Of-`.csv`-Files-In-Folder) Below
 
-On Windows
-1. Go to your Folder in Windows Explorer
-2. Open the Folder
-3. In the Windows Explorer Address Bar, type "cmd" (but don't include the quotes) and press Enter.
-4. This takes you to command promt, where you can paste this garbage:
-  ```bash
-  (for /r %f in (*.csv) do @type "%f") | find /c /v ""
-  ```
-5.  The number of files ending in .csv in that folder will print out
+## Save These 2 Scripts
 
-## 5. Save These 2 Scripts
-
-### `DuplicateFamilyNTimes.pcz`
+### 1. `DuplicateFamilyNTimes.pcz`
   - Open GraphPad Prism
   - File > Run Script > New Script
     - Select `Blank Script`
     - Name of Script: `DuplicateFamilyNTimes` 
     - Press `Create`
     - Copy paste the script below into the window labeled `Your Script`
-    - Press `Save`
-  
+
 ```
 ForEach 10
 GoTo D 1
 DuplicateFamily "Dup %N "
 Next
 ```
+  - Press `Save`
 
-###  `ImportDataTables.pcz`
+
+###  2. `ImportDataTables.pcz`
   - Open GraphPad Prism
   - File > Run Script > New Script
     - Select `Blank Script`
     - Name of Script: `ImportDataTables` 
     - Press `Create`
     - Copy paste the script below into the window labeled `Your Script`
-    - Press `Save`
   
 ```
-SetPath "/the/path/to/your/folder/goes/here" //tell prism where your folder is that contains CSV files before you run!
+SetPath "/the/path/to/your/folder/goes/here" //tell prism where your folder is that contains `.csv` files before you run!
 
 OpenOutput ScriptLog
 
-ForEach *.csv 
-    WText "file =%F.csv"
+ForEach *`.csv` 
+    WText "file =%F`.csv`"
     WText %N
     GoTo D %N
     ClearTable
@@ -169,6 +154,7 @@ WText "Graph Names are Updated!"
 
 CloseOutput
 ```
+  - Press `Save`
 
 # Instructions
 
@@ -178,19 +164,16 @@ CloseOutput
 - Format plots
 - Add a layout if you want
 - <b>Save A Copy</b> of this file, in case you mess up
+- 
+## Run `DuplicateFamilyNTimes` Script
 
-## Edit One Number In `DuplicateFamilyNTimes` Script 
-
-This tells the scripts how many NEW DataTables to Create from Duplicating the Family of the First DataTable already in Prism.
+First, tell the script how many times to "Duplicate Family..."
 
   1. File > Run Script > Open Script File
   2. Click on `DuplicateFamilyNTimes.pzc` 
   3. Change the number after `ForEach` to the number of Duplicates you want.
 
-
-> Warning! - N is the # of NEW tables to make, in addition to one DataTable already in Prism.
-> 
-So if you have 30 DataTables, then N = 29. The scripts will overwrite the first DataTable
+So if you have 30 DataTables, then N = 29.
 
 To make 29 duplicates (for final 30 DataTables)
 ```
@@ -199,6 +182,7 @@ GoTo D 1
 DuplicateFamily "Dup %N "
 Next
 ```
+
 To make 15 duplicates (for final 16 DataTables)
 ```
 ForEach 15
@@ -206,19 +190,17 @@ GoTo D 1
 DuplicateFamily "Dup %N "
 Next
 ```
-  4. Press `Run` 
-  5. 
- - After the script is finished, you should see all the duplicated familes.
+  1. Press `Run` 
+  
 
-## Edit One Line in `ImportDataTables` Script
+## Run `ImportDataTables` Script
 
-This tells the Script where on your computer to collect your csv files.
+First, tell the script where to find your files to Import
 
   1. File > Run Script > Open Script File
   2. Click on `ImportDataTables.pzc` 
-  3. Copy your folder path that contains your CSV Files
+  3. Paste your Path in quotes after `SetPath `
     - See How To [Get Folder Path](#Get-Folder-Path) below
-  4. Paste your Path in quotes after `SetPath `
 
   Windows Example
   ```
@@ -229,7 +211,7 @@ This tells the Script where on your computer to collect your csv files.
   SetPath "/Users/nicolewheatley/Documents/PrismData/Files"
   ```
 
-  5. Press `Run`
+  4. Press `Run`
 
 
 
@@ -237,7 +219,7 @@ This tells the Script where on your computer to collect your csv files.
 
 The script should take ~10 seconds to run.
 
-Then you will see all of your newly imported data.
+Then you will see all of your newly imported data, and updated analysis and plots!
 
 <br/>
 <br>
@@ -266,3 +248,23 @@ Then you will see all of your newly imported data.
 2. `Shift` + right-click on Folder 
 3. Select `Copy as path` on drop down menu.
 
+## Find Number Of `.csv` Files In Folder
+On Mac
+1.  Go to your folder in Finder
+    1.  Right click > menu select `New Terminal At Folder`
+2.  In the terminal window that appears, paste the command below <i>using right click, not control-v</i>
+    ```bash
+    ls *`.csv` | wc -l
+    ```
+3. Press `Enter`
+4.  The number of files ending in `.csv` in that folder will print out
+
+On Windows
+1. Go to your Folder in Windows Explorer
+2. Open the Folder
+3. In the Windows Explorer Address Bar, type "cmd" (but don't include the quotes) and press Enter.
+4. This takes you to command promt, where you can paste this garbage:
+  ```bash
+  (for /r %f in (*`.csv`) do @type "%f") | find /c /v ""
+  ```
+5.  The number of files ending in `.csv` in that folder will print out
