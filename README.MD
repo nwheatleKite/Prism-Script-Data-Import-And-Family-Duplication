@@ -100,6 +100,7 @@ On Windows
 ## 5. Save These 2 Scripts
 
 ### `DuplicateFamilyNTimes.pcz`
+  - Open Prism GraphPad
   - File > Run Script > New Script
     - Select `Blank Script`
     - Name of Script: `DuplicateFamilyNTimes` 
@@ -115,6 +116,7 @@ Next
 ```
 
 ###  `ImportDataTables.pcz`
+  - Open Prism GraphPad
   - File > Run Script > New Script
     - Select `Blank Script`
     - Name of Script: `ImportDataTables` 
