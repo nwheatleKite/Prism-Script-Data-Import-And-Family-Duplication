@@ -132,8 +132,8 @@ SetPath "/the/path/to/your/folder/goes/here" //tell prism where your folder is t
 
 OpenOutput ScriptLog
 
-ForEach *`.csv` 
-    WText "file =%F`.csv`"
+ForEach *.csv 
+    WText "file =%F.csv"
     WText %N
     GoTo D %N
     ClearTable
@@ -157,7 +157,7 @@ CloseOutput
   - Press `Save`
 
 # Instructions
-
+ 
 ## Create First Prism Family 
 - Import single DataTable
 - Do analysis
