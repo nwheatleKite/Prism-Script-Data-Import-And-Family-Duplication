@@ -254,7 +254,7 @@ On Mac
     1.  Right click > menu select `New Terminal At Folder`
 2.  In the terminal window that appears, paste the command below <i>using right click, not control-v</i>
     ```bash
-    ls *`.csv` | wc -l
+    ls *.csv | wc -l
     ```
 3. Press `Enter`
 4.  The number of files ending in `.csv` in that folder will print out
@@ -265,6 +265,6 @@ On Windows
 3. In the Windows Explorer Address Bar, type "cmd" (but don't include the quotes) and press Enter.
 4. This takes you to command promt, where you can paste this garbage:
   ```bash
-  (for /r %f in (*`.csv`) do @type "%f") | find /c /v ""
+  (for /r %f in (*.csv) do @type "%f") | find /c /v ""
   ```
 5.  The number of files ending in `.csv` in that folder will print out
