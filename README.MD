@@ -107,7 +107,7 @@ See How to [Find the Number of `.csv` Files in your Folder](#Find-Number-Of-`.cs
   - File > Run Script > New Script
     - Select `Blank Script`
     - Name of Script: `DuplicateFamilyNTimes` 
-    - Press `Create`
+    - Press `Create` on Mac / `OK` on Windows
     - Copy paste the script below into the window labeled `Your Script`
 
 ```
@@ -124,7 +124,7 @@ Next
   - File > Run Script > New Script
     - Select `Blank Script`
     - Name of Script: `ImportDataTables` 
-    - Press `Create`
+    - Press `Create`  on Mac / `OK` on Windows
     - Copy paste the script below into the window labeled `Your Script`
   
 ```
@@ -138,6 +138,7 @@ ForEach *.csv
     GoTo D %N
     ClearTable
     Import
+    SetSheetTitle %F
     WText "import success"
     Next
 
